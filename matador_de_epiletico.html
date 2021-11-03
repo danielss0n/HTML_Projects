@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matador de Epileptico</title>
+    <style>
+        body{
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+            position: absolute;
+            background-color: black;
+            color: red;
+            border: 2px solid red;
+            border-radius: 50px;
+            width: 60px;
+            height: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: 0.2s;
+        }
+        button:hover{
+            background-color: red;
+            color: black;
+        }
+        #text{
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            color: red;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="text">Matador de epilético (aperte no gatilho)</h1>
+    <button onclick="able()" id="btn" >gatilho</button>
+
+    <script>
+        
+        var i = 0
+        var color = [
+                "#FF0000",
+                "#FFF700",
+                "#18FF00",
+                "#00FFF5",
+                "#0016FF",
+                "#FF00DC",
+                "black",
+              
+            ]
+
+            function able(){
+                document.getElementById("btn").remove()
+                document.getElementById("text").remove()
+                function change(){
+                    document.body.style.backgroundColor = color[i]
+                    i++
+                    if(i>=color.length){
+                        i=0
+                        } 
+                    }
+            setInterval(change,1)
+            }
+
+    </script>
+</body>
+</html>

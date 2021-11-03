@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Study - Cassiano</title>
+</head>
+
+<style>
+
+    body{
+        background-color: blue;
+        color: white;
+        margin: 0;
+        font-family: myFont;
+        transition: 1s;
+    }
+
+    @font-face {
+        font-family: myFont;
+        src: url(/imgs/Roboto-Light.ttf);
+        
+    }
+    #loupe{
+        width: 15px;
+        height: 15px;
+        margin-top: 3%;
+        margin-left: 3%;
+    }
+    #microfone{
+        width: 15px;
+        height: 15px;
+        margin-left: 430px;
+    }
+    
+    .input-logos {
+        width: 20px;
+        height: 20px;
+    }
+    .head-logos{
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        right: 10px;
+        top: 40px;
+    }
+        #header{
+        width: 100%;
+        height: 31px;
+        background-color: rgb(53,54,58);
+        border-bottom: 1px solid rgb(90, 91, 96);
+    }
+
+    .google-logo{
+        position: absolute;
+        width: 260px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-140%);
+    }
+    #input-div{
+        position: absolute;
+        width: 500px;
+        height: 45px;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%,10%);
+        background-color: white;
+        border-radius: 50px;
+        border: 0px solid white;
+    }
+    #input{
+        position: absolute;
+        width: 330px;
+        height: 85%;
+        left: 10%;
+        border: 0px solid white;
+        padding-top: 4px;
+        font-size: 17px;
+        outline: none;
+        color: rgb(49, 49, 49);
+        font-size: 16px;
+    }
+    #text1{
+        font-size: 14px;
+        position: absolute;
+        right: 180px;
+        top: 40px;
+        color: rgb(228, 228, 228);
+    }
+    #text2{
+        font-size: 14px;
+        position: absolute;
+        right: 105px;
+        top: 40px;
+        color: rgb(228, 228, 228);
+    }
+    #text3{
+        width: 24px;
+        position: absolute;
+        right: 62px;
+        top: 45px;
+        background-color: rgb(53,54,58);
+        border-radius: 40px;
+        transition: 0.3s;
+    }
+    #text3:hover{
+        color: rgb(214, 214, 214);
+    }
+    #apps{
+        position: absolute;
+        width: 20px;
+        top: 4px;
+        left: 6px;
+    }
+    #apps-div{
+        position: absolute;
+        width: 70px;
+        height: 29px;
+        top: 1px;
+        left: 18px;
+        border-radius: 40px;
+        transition: 0.3s;
+    }
+    #apps-div:hover{
+        background-color: rgb(78, 79, 83);
+    }
+    #apps-text{
+        position: relative;
+        font-size: 13px;
+        left: 29px;
+        bottom: 2px;
+    }
+    #pesquisa-btn{
+        position: absolute;
+        width: 120px;
+        height: 30px;
+        top: 52%;
+        left: 51%;
+        transform: translate( -0%,170%);
+        background-color: rgb(78, 79, 83);
+        border-radius: 3px;
+        transition: 0.2s;
+    }
+    #sorte-btn{
+        position: absolute;
+        width: 120px;
+        height: 30px;
+        top: 52%;
+        left: 50%;
+        transform: translate( -103%,170%);
+        background-color: rgb(78, 79, 83);
+        border-radius: 3px;
+        transition: 0.2s;
+    }
+
+    #sorte-btn:hover{
+        background-color: rgb(94, 95, 96);
+    }
+    #pesquisa-btn:hover{
+        background-color: rgb(94, 95, 96);
+    }
+
+    #sorte-text{
+        font-size: 13px;
+        color: rgb(214, 214, 214);
+        position: relative;
+        left: 12px;
+        bottom: 2px;
+        
+    }
+    
+    #pesquisa-text{
+        font-size: 13px;
+        color: rgb(214, 214, 214);
+        position: relative;
+        left: 12px;
+        bottom: 2px;
+    }
+</style>
+
+<body>
+   
+<script>
+    var color = [
+        "#FF0000",
+        "#FFF700",
+        "#18FF00",
+        "#00FFF5",
+        "#0016FF",
+        "#FF00DC",
+    ]
+    var i = 0
+
+    function change(){
+        document.body.style.backgroundColor = color[i]
+        i++
+        if(i>=color.length){
+            i=0
+        }
+    }
+    setInterval(change,500)
+    change()
+
+</script>
+        <div id="header">
+
+            <div id="apps-div">
+                <img src="/imgs/apps.jpg" id="apps"> 
+                <h1 id="apps-text">Apps</h1>
+            </div>
+                <div id="leitura"></div>
+        </div>
+         
+        <img src="/imgs/user.png" class="head-logos">
+        <h1 id="text1">Gmail</h1>
+        <h1 id="text2">Imagens</h1>
+        <img src="/imgs/dot-icon-20.jpg" id="text3">
+        <img src="/imgs/google-white-logo-1.png" class="google-logo">
+     
+    <main>
+
+        <div id="input-div">
+            <img id="loupe" src="/imgs/loupe.png">
+            <input type="text" id="input" placeholder="Pesquise no Google ou use uma URL">
+            <img id="microfone" src="/imgs/microfone.png">
+        </div>
+
+       <div id="pesquisa-btn">
+           <h1 id="sorte-text">Estou com sorte</h1>
+       </div>
+       
+       <div id="sorte-btn">
+           <h1 id="pesquisa-text">Pesquisa Google</h1>
+       </div>
+
+    </main>
+
+</body>
+
+</html>
