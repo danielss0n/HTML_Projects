@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senai Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <header>
+        
+    </header>
+    <h1 id="title">SENAI CHAT</h1>
+    <p id="hora" onload="horario()">a</p>
+    
+
+    <div id="chat">
+        <div id="person1"></div>
+        <div id="person2"></div>
+    </div>
+
+    <div id="mensagem">
+        <input type="text" id="name" placeholder="Digite seu nome">
+            <input type="text" id="input1" placeholder="Digite sua mensagem">     
+            <button id="send1">Enviar</button>
+    </div>
+   
+
+
+    <script>
+
+        const element = document.getElementById("chat")
+        document.getElementById("send1").addEventListener("click",createText)
+        
+        horario()
+
+        function createText(){
+
+            var input1 = document.getElementById("input1").value
+            var name1 = document.getElementById("name").value
+
+            var today = new Date();
+            var time = today.getHours() + ":" + today.getMinutes();
+
+            if(input1 === ""){
+                alert("DIGITE ALGO")
+            }
+
+            if(input1 != ""){
+   
+                var p = document.createElement("p")
+                var text = document.createTextNode(`${time} - ${name1} : ${input1}`)
+                
+                
+                p.appendChild(text)
+
+                p.style.color = "mediumseagreen"
+                element.appendChild(p)
+            
+            }
+
+            document.getElementById("input1").value = ""
+            
+        }
+
+        
+        function horario(){
+
+            window.requestAnimationFrame(horario)
+            var today = new Date();
+            var time2 = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+
+            document.getElementById("hora").innerText = time2
+        }
+        
+        
+
+    </script>
+    
+    <style>
+        body{
+    margin: 0;
+    background-color: rgb(172, 171, 171);
+}
+
+
+#chat{
+    height: 400px;
+    width: 500px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: white;
+    padding:10px;
+    margin-bottom: 0px;
+    color: white;
+    overflow-y: scroll;
+}
+
+#person1{
+    width: 25%;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#title{
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 0px;
+}
+
+header{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    background-color: mediumseagreen;
+}
+
+#send1:hover{
+    background-color:rgb(27, 125, 71);
+    border: none;
+    outline: none;
+    color: white;
+}
+#send1{
+    position: absolute;
+    background-color:mediumseagreen;
+    color: rgb(0, 0, 0);
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 80px;
+    transition: 0.2s;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+#input1{
+    margin-left: 50%;
+    margin-top: 20px;
+    position: relative;
+    height: 37px;
+    border-radius: 3px;
+    border: solid white 0px;
+    outline: none;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+#send{
+    background-color: gray;
+    height: 157px;
+}
+#mensagem{
+    background-color: rgb(172, 171, 171);
+    height: 100px;
+}
+
+#title{
+    position: absolute;
+    top: 7px;
+    left: 17px;
+}
+
+#name{
+    margin-left: 50%;
+    margin-top: 10px;
+}
+
+#hora{
+    color: white;
+    position: absolute;
+    left: 240px;
+    top: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+    </style>
+</body>
+</html>
